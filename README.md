@@ -6,9 +6,15 @@ BetterDiscord extends the functionality of DiscordApp by enhancing it with new f
 
 Themes allow you to completely customize your client with CSS. You can either make your own theme, or download the wide variety of themes from our community.
 
+![image](https://user-images.githubusercontent.com/36511798/135764106-af9541af-ed68-437c-97be-1bf362f99fe0.png)
+
+
 # Plugins
 
 BetterDiscord comes with a builtin plugin loader and plugin API. Plugins can increase the functionality and user experience of the app through JavaScript. Write your own or download plugins made by the community.
+
+![image](https://user-images.githubusercontent.com/36511798/135764156-cef906a0-cfce-4f80-811d-a2818d9b9d7a.png)
+
 
 # And More
 
