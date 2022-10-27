@@ -1,0 +1,424 @@
+/**
+ * @name Fate Archer
+ * @author v01d
+ * @version 1.0.0
+ * @description Display your picture of choice with adjustable blur and brightness. Dark theme is required.
+ * @source https://github.com/jagreetdg/betterdiscord
+ * @website https://jagreetdg.github.io
+*/
+
+
+@import url(https://clearvision.gitlab.io/v6/main.css);
+
+@import url("https://discordstyles.github.io/FrostedGlass/dist/FrostedGlass.css");
+
+/* BlackBox tags */
+@import url('https://monstrousdev.github.io/themes/addons/user-tags.css');
+
+/*@import url(https://clearvision.gitlab.io/v6/main.css);*/
+
+/* Old Windows titlebar - remove this @import if you wish to use default titlebar */
+@import url("https://gibbu.github.io/BetterDiscord-Themes/addons/windows-titlebar.css");
+
+
+.container-3baos1:before {
+    content: "v01dieJESUZz";
+    right: 50%;
+    text-align: right;
+    transform: translateX(50%);
+}
+
+:root {
+
+    --main-color: #a50055e7;
+    --hover-color: #dd2d47c2;
+    --streaming-color: #d3f800;
+    --channel-color: rgba(255, 255, 255, 0.89);
+    --muted-color: rgba(255, 255, 255, 0.308);
+
+
+    /* Background image variables */
+    --background-image: url('https://raw.githubusercontent.com/jagreetdg/BetterDiscord/master/res/archer_kill.jpg');
+    /* Main background image | URL MUST BE A DIRECT LINK (ending in .jpg, .jpeg, .png, .gif) */
+    --background-image-blur: 3px;
+    /* Blur intensity of --background-image | Must end in px | DEFAULT: 5px */
+    --background-image-size: cover;
+    /* Size of the background image | DEFAUT: cover | OPTIONS: cover, contain */
+    --background-image-position: center;
+    /* Position of background image | DEAFULT: center | OPTIONS: top, right, bottom, left, center */
+
+    /* Popout & Modal variables */
+    --popout-modal-image: var(--background-image);
+    /* Background image for popouts and modals | URL MUST BE A DIRECT LINK (ending in .jpg, .jpeg, .png, .gif) */
+    --popout-modal-blur: 5px;
+    /* Blur intensity of --popout-modal-image | Must end in px | DEFAULT: 5px */
+    --popout-modal-size: cover;
+    /* Size of the popout/modal image | DEFAUT: cover | OPTIONS: cover, contain */
+    --popout-modal-position: center;
+    /* Position of popout/modal image | DEAFULT: center | OPTIONS: top, right, bottom, left, center */
+
+    /* Home button image | URL MUST BE A DIRECT LINK (ending in .jpg, .jpeg, .png, .gif) */
+    --home-button-size: cover;
+    /* Size of the home button image | DEFAUT: cover */
+    --home-button-position: center;
+    /* Position of home button image | DEAFULT: center */
+
+    /* Brightness variables */
+    --serverlist-brightness: 0.8;
+    /* Brightness for serverlist | 0 - 1 (decimals allowed) | DEFAULT: 0.8 */
+    --left-brightness: 0.8;
+    /* Channels and DM list brightness | 0 - 1 (decimals allowed) | DEFAULT: 0.8 */
+    --middle-brightness: 0.6;
+    /* Chat brightness | 0 - 1 (decimals allowed) | DEFAULT: 0.6 */
+    --right-brightness: 0;
+    /* Members and Now Playing brightness | 0 - 1 (decimals allowed) | DEFAULT: 0 */
+    --popout-modal-brightness: 0.75;
+    /* Brightness for popouts and modals | 0 - 1 (decimals allowed) | DEFAULT: 0.75 */
+
+    /* Gradient variables */
+    --gradient-primary: 103, 58, 183;
+    /* DEFAULT: 103,58,183 */
+    --gradient-secondary: 63, 81, 181;
+    /* DEFAULT: 63,81,181 */
+    --gradient-direction: 320deg;
+    /* DEFAULT: 320deg */
+
+    /* Tint variables */
+    --tint-colour: 255, 51, 159;
+    /* Colour of tint | DEAFULT: 255,51,159 */
+    --tint-brightness: 0;
+    /* Brightness of --tint-colour | 0 - 1 (decimals allowed) | DEFAULT: 0 */
+
+    /* Other variables */
+    --window-padding: 3px;
+    /* Spacing around the Discord window | DEFAULT: 20px */
+    --window-roundness: 10px;
+    /* Roundness of Discord | DEFAULT: 10px */
+    --scrollbar-colour: rgba(255, 255, 255, 0.05);
+    /* DEFAULT: rgba(255,255,255,0.05) */
+    --link-colour: #00b0f4;
+    /* DEFAULT: #00b0f4 */
+
+    /*
+    Visit https://fonts.google.com and select one to your liking.
+    Now just follow this tutorial: https://imgur.com/a/CNbw7xC
+  */
+    --font: 'Whitney';
+
+    /* Do not touch */
+    --update-notice-1: none;
+}
+
+.notice-3bPHh-.colorStreamerMode-2SJAUN {
+    background: rgb(255, 251, 6);
+}
+
+.mask-1l8v16 rect[mask="url(#svg-mask-status-streaming)"],
+.mask-1l8v16 rect[fill="hsl(262, calc(var(--saturation-factor, 1) * 46.8%), 39.8%)"],
+.mask-1qbNWk rect[mask="url(#svg-mask-status-streaming)"],
+.mask-1qbNWk rect[fill="hsl(262, calc(var(--saturation-factor, 1) * 46.8%), 39.8%)"] {
+    fill: var(--streaming-color);
+}
+
+/*------------------------------------------------------------------------------------------*/
+
+/* CHANNEL CATEGORY */
+.containerDefault-3tr_sE,
+.containerDragAfter-Zk9oyx,
+.containerDragBefore-1YqewQ,
+.containerUserOver-98-yc7 {
+    padding-top: 16px;
+}
+
+.wrapper-PY0fhH {
+    padding-left: 10px;
+    padding-right: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.icon-2yIBmh {
+    display: none;
+}
+
+.name-3l27Hl {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--main-color);
+    font-weight: 700;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    opacity: 0.7;
+}
+
+.name-3l27Hl:before {
+    content: "";
+    height: 2px;
+    flex-grow: 1;
+    transition: all 0.3s ease-in-out;
+    background: linear-gradient(to left, var(--main-color) 50%, transparent);
+    margin-right: 5px;
+}
+
+.name-3l27Hl:after {
+    content: "";
+    height: 2px;
+    flex-grow: 1;
+    transition: all 0.3s ease-in-out;
+    background: linear-gradient(to right, var(--main-color) 50%, transparent);
+    margin-left: 5px;
+}
+
+.mainContent-2h-GEV:hover .name-3l27Hl {
+    opacity: 1;
+}
+
+.sidebar-2K8pFh .containerDefault-3tr_sE .wrapper-PY0fhH .name-3l27Hl,
+.sidebar-2K8pFh .containerDragAfter-Zk9oyx .wrapper-PY0fhH .name-3l27Hl,
+.sidebar-2K8pFh .containerDragBefore-1YqewQ .wrapper-PY0fhH .name-3l27Hl,
+.sidebar-2K8pFh .containerUserOver-98-yc7 .wrapper-PY0fhH .name-3l27Hl {
+    color: var(--main-color);
+}
+
+.children-L002ao {
+    margin-left: 3px;
+}
+
+.collapsed-2-tg8y .name-3l27Hl:before,
+.collapsed-2-tg8y .name-3l27Hl:after {
+    flex-grow: 0;
+}
+
+.muted-2JBAyG {
+    opacity: 0.5;
+}
+
+.addButtonIcon-2CbG1X {
+    color: var(--main-color);
+    opacity: 0.7;
+    transition: all 0.3s ease-in-out;
+}
+
+.addButtonIcon-2CbG1X:hover {
+    color: var(--main-color);
+    opacity: 1;
+}
+
+
+
+/* MEMBERS */
+.membersWrap-2h-GB4 {
+    min-width: auto;
+    flex-basis: var(--members-width);
+}
+
+.membersWrap-2h-GB4 .members-1998pB {
+    width: var(--members-width);
+    background: rgba(0, 0, 0, calc(var(--background-shading) * .6));
+}
+
+.membersWrap-2h-GB4 .members-1998pB>div {
+    background-color: transparent;
+}
+
+.members-1998pB .membersGroup-v9BXpm {
+    padding-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--main-color);
+    font-size: 11px;
+    font-weight: 700;
+    text-align: center;
+    transition: all 0.15s ease-in-out;
+    opacity: 0.85;
+}
+
+.members-1998pB .membersGroup-v9BXpm:hover {
+    opacity: 1;
+}
+
+.members-1998pB .membersGroup-v9BXpm:before {
+    content: "";
+    height: 2px;
+    flex-grow: 1;
+    background: linear-gradient(to left, currentColor 50%, transparent);
+    margin-right: 5px;
+}
+
+.members-1998pB .membersGroup-v9BXpm:after {
+    content: "";
+    height: 2px;
+    flex-grow: 1;
+    background: linear-gradient(to right, currentColor 50%, transparent);
+    margin-left: 5px;
+}
+
+.members-1998pB .member-3-YXUe {
+    background: transparent !important;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.members-1998pB .member-3-YXUe.offline-3nJYBR .avatar-3uk_u9 {
+    filter: grayscale(100%) blur(1px);
+    transition: all 0.5s ease-in-out;
+}
+
+.members-1998pB .member-3-YXUe.offline-3nJYBR:hover .avatar-3uk_u9 {
+    filter: none;
+}
+
+.members-1998pB .member-3-YXUe .layout-2DM8Md {
+    position: relative;
+    background: transparent;
+    transition: all 0.15s ease-in-out, transform 0.1s ease-in-out;
+    z-index: 1;
+}
+
+.members-1998pB .member-3-YXUe .layout-2DM8Md:active {
+    transform: scale(0.9);
+}
+
+.members-1998pB .member-3-YXUe .roleColor-rz2vM0 {
+    max-width: 100%;
+    overflow: visible;
+    transition: all 0.15s ease-in-out;
+}
+
+.members-1998pB .member-3-YXUe .roleColor-rz2vM0:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.07) 90%, transparent);
+    border-radius: 3px;
+    opacity: 0;
+    transition: all 0.15s ease-in-out;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.members-1998pB .member-3-YXUe .roleColor-rz2vM0:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 100%;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(to right, var(--main-color) 90%, transparent);
+    border-radius: 3px;
+    opacity: 0.8;
+    transition: all 0.3s ease-in-out;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.members-1998pB .member-3-YXUe [style*="color:"].roleColor-rz2vM0:before,
+.members-1998pB .member-3-YXUe [style*="color:"].roleColor-rz2vM0:after {
+    background: linear-gradient(to right, rgb(0, 0, 0) 50%, transparent);
+}
+
+.members-1998pB .member-3-YXUe:hover .roleColor-rz2vM0:before,
+.members-1998pB .member-3-YXUe.selected-aXhQR6 .roleColor-rz2vM0:before {
+    opacity: 1;
+}
+
+.members-1998pB .member-3-YXUe:hover [style*="color:"].roleColor-rz2vM0:before,
+.members-1998pB .member-3-YXUe.selected-aXhQR6 [style*="color:"].roleColor-rz2vM0:before {
+    opacity: 0.07;
+}
+
+.members-1998pB .member-3-YXUe.selected-aXhQR6 .roleColor-rz2vM0 {
+    -webkit-text-fill-color: rgb(255, 255, 255);
+    /*EDIT COLOR*/
+    text-shadow: 0 0 3px rgba(59, 59, 59, 0.7);
+}
+
+.members-1998pB .member-3-YXUe.selected-aXhQR6 .roleColor-rz2vM0:after {
+    right: 0;
+}
+
+.members-1998pB .memberGroupsPlaceholder-3mwPub {
+    margin: 0 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-basis: 50%;
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.members-1998pB .memberGroupsPlaceholder-3mwPub:before,
+.members-1998pB .memberGroupsPlaceholder-3mwPub:after {
+    content: "";
+    height: 2px;
+    flex-grow: 1;
+}
+
+.members-1998pB .memberGroupsPlaceholder-3mwPub:before {
+    background: linear-gradient(to left, currentColor 50%, transparent);
+    margin-right: calc(50% + 5px);
+    margin-left: -50%;
+}
+
+.members-1998pB .memberGroupsPlaceholder-3mwPub:after {
+    background: linear-gradient(to right, currentColor 50%, transparent);
+    margin-right: -50%;
+    margin-left: calc(50% + 5px);
+}
+
+.members-1998pB .memberGroupsPlaceholder-3mwPub,
+.members-1998pB .placeholderAvatar-damqh6,
+.members-1998pB .placeholderUsername-2B_OA9,
+.members-1998pB .mulitplePlaceholderUsername-pogq9I {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.addMembersIcon-1Bz_VS {
+    background-color: var(--background-overlay);
+}
+
+.members-1998pB {
+    width: var(--members-width);
+    background: rgba(0, 0, 0, calc(var(--background-shading) * .6));
+}
+
+.members-1998pB>div {
+    background-color: transparent;
+}
+
+.emptyStateHeader-W2ruuN {
+    padding-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--main-color);
+    font-size: 11px;
+    font-weight: 700;
+    text-align: center;
+    transition: all 0.15s ease-in-out;
+    opacity: 1;
+}
+
+.emptyStateHeader-W2ruuN:before {
+    content: "";
+    height: 2px;
+    flex-grow: 1;
+    background: linear-gradient(to left, currentColor 50%, transparent);
+    margin-right: 5px;
+}
+
+.emptyStateHeader-W2ruuN:after {
+    content: "";
+    height: 2px;
+    flex-grow: 1;
+    background: linear-gradient(to right, currentColor 50%, transparent);
+    margin-left: 5px;
+}
+
+.emptyStateIcon-1JWNn4 {
+    background-color: var(--main-color);
+    color: rgb(255, 255, 255);
+}
